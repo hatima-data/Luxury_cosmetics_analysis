@@ -88,12 +88,23 @@ select
 		from luxury_cosmetics;
 
 
+select 
+	product_name,
+	count(*)
+	from luxury_cosmetics
+	group by product_name;
 
-
-
-
-
-
+select
+	city,
+	region
+	from luxury_cosmetics
+	group by region,city;
+	
+select
+	brand,
+	city
+	from luxury_cosmetics
+	group by brand,city;
 
 
 
