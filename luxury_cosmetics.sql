@@ -307,9 +307,24 @@ select
 	from monthly_sales
 	order by sales_month asc;
 
+create or replace function calculate_revenue(price numeric, units int)
+returns numeric as $$
+begin
+	return price*units;
+end;
+$$ language plpgsql;
 
 
+select calculate_revenue(45.50,12) as test_revenue
 
+select 
+	product_name,
+	brand,
+	price_usd,
+	units_sold,
+	calculate_revenue(price_usd, units_sold) as total_revenue
+from luxury_cosmetics
+limit 5;
 
 
 
